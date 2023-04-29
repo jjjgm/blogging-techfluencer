@@ -10,12 +10,11 @@ Post.init ({
         autoIncrement: true,
         allowNull: false,
     },
-    displayName: {
+    display_name: {
         type: DataTypes.STRING,
-        allowNull: false,
         references: {
             model: 'user',
-            key: 'id'
+            key: 'username'
         }
     },
     blog: {
@@ -24,7 +23,15 @@ Post.init ({
             //MIN OF 20 and MAX of 10000 CHAR
             len: [20, 10,000]
         }
-    }
+    },
+    // user_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'user',
+    //         key: 'id'
+    //     }
+    // },
 },
 {
     sequelize,
@@ -33,6 +40,6 @@ Post.init ({
     timestamps: true,
     modelName: 'post'
 }
-)
+);
 
 module.exports = Post ;

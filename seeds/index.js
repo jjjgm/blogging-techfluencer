@@ -12,10 +12,21 @@ const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
     //CREATE MORE USERS IN DB - W/ HASHED PW
-    const user = await User.bulkCreate(userData, {
-        individualHooks: true,
-        returning: true,
-    });
+
+    // const user = await User.bulkCreate(userData, {
+    //     // individualHooks: true,
+    //     returning: true,
+    // });
+
+    // const user = await User.create( user, {
+    //     indivdualHooks: true,
+    //     returning: true,
+    // });
+
+    // const post = await  Post.bulkCreate(postData, {
+    //     returning: true,
+    // });
+
 
     process.exit(0);
 };
