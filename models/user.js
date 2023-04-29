@@ -45,8 +45,9 @@ User.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
+        timestamps: false,
         modelName: 'user',
     }
 );
 //EXPORT TABLE USER
-module.exports = User
+module.exports = User;

@@ -2,5 +2,9 @@
     {
         "username": "jjjgm",
         "password": "apassa"
+    },
+    {
+        "username": "moderator",
+        "password": "modpass"
     }
 ]
