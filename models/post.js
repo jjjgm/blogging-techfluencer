@@ -21,7 +21,7 @@ Post.init ({
         type: DataTypes.TEXT,
         validate : {
             //MIN OF 20 and MAX of 10000 CHAR
-            len: [20, 10,000]
+            len: [20, 9000]
         }
     },
     // user_id: {
