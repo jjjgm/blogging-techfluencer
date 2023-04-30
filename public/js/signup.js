@@ -13,7 +13,7 @@ document.getElementById('signup-btn').addEventListener('submit', (event) => {
         return;
     }
 
-    fetch('api/authRoutes', {
+    fetch('api/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

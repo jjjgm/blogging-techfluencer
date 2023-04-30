@@ -14,7 +14,7 @@ router.post('/posts', async (req, res) => {
         });
         res.redirect(`/dashboard/${newPost.id}`);
     } catch (err) {
-        res.redirect(`/landing`)
+        res.redirect(`/login`)
     }
 });
 

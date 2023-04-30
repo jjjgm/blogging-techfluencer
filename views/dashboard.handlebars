@@ -1,12 +1,13 @@
 {{!-- THIS IS WHERE ALL BLOGS SHOULD LOAD --}}
 
-{{#with users as |user| }}
-{{#with user.post as |bpv| }}
+{{#each user.blog as |blog|}}
 
-{{bp.username}}
 
-{{title}}: {{bpv.title}}
-{{blog}}: {{bpv.blog}}
+By: {{blog.username}}
 
-{{/with}}
-{{/with}}
+{{this.title}} 
+{{this.blog}}
+
+{{/each}}
+
+

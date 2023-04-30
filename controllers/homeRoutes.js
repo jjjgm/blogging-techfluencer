@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 // IMPORT ALL MODELS WITH OWN VAR NAME AS A CONST
 const db = require ('../models')
 
@@ -8,7 +8,7 @@ const db = require ('../models')
 //SIGN UP
 router.get('/signup', async (req, res) => {
     if (req.session.logeed_in) {
-        res.redirect('/homepage');
+        res.redirect('/');
         return;
     }
     res.render('signup');
@@ -18,7 +18,7 @@ router.get('/signup', async (req, res) => {
 //LOGIN
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/homepage');
+        res.redirect('/');
         return;
     }
     res.render('login');
@@ -63,7 +63,7 @@ router.get('/users', async (req, res) => {
         });
         res.render(`/homepage`);
     } catch (err) {
-        res.redirect(`/landing`)
+        res.redirect(`/login`)
     }
 });
 
