@@ -1,11 +1,13 @@
-const router = require ('express').Router();
+const express = require('express');
+const router = express.Router();
+
 
 // ALL API FOLDER ROUTES  WILL BEGIN W /API
 // ALL HOME / DASHBOARD ROUTES WILL BEGIN W /
-const apiRoutes = require ('./api')
-const homeRoutes = require ('./')
+const apiRoutes = require('./api');
+const homeRoutes = require('./');
 
-router.use( './api' , apiRoutes);
-router.use('/', homeRoutes);
+router.use('./api', apiRoutes);
+router.use('./', homeRoutes);
 
 module.exports = router;
