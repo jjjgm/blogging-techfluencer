@@ -38,4 +38,5 @@ Post.init ({
 }
 );
 
+// EXPORT MODEL TABLE POST
 module.exports = Post ;

@@ -1,5 +1,6 @@
 const sequelize = require ('../config/connection.js')
 
+// IMPORT MODELS
 const Post = require('./post');
 const User = require('./user');
 
@@ -11,4 +12,5 @@ User.hasMany(Post, {
     foreignKey: 'user_id'
 });
 
+// EXPORT MODELS
 module.exports = { User, Post } 

@@ -46,5 +46,6 @@ User.init(
         modelName: 'user',
     }
 );
+
 //EXPORT TABLE USER
 module.exports = User;
