@@ -1,14 +1,14 @@
 const sequelize = require ('../config/connection.js')
 
-const { Post } = require ('./post')
-const { User } = require ('./user')
+const Post = require('./post');
+const User = require('./user');
 
 Post.belongsTo(User, {
-    foreignKey: 'username'
+    foreignKey: 'user_id'
 });
 
 User.hasMany(Post, {
-    foreignKey: 'username'
+    foreignKey: 'user_id'
 });
 
-module.exports = { User, Post }
+module.exports = { User, Post } 

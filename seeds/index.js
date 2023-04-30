@@ -2,8 +2,7 @@
 const sequelize = require ('../config/connection');
 
 // USER MODEL & SEED DATA
-const { User } = require ('../models/user')
-const { Post } = require ('../models/post')
+const { User, Post } = require('../models')
 const userData = require ('../seeds/userSeed.json')
 const postData = require ('../seeds/postSeed.json');
 
@@ -19,6 +18,8 @@ const seedDatabase = async () => {
         returning: true,
     });
 
+    // CREATE POSTS
+    
     const post = await Post.bulkCreate(postData, {
         returning: true,
     });

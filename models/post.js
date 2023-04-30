@@ -10,28 +10,24 @@ Post.init ({
         autoIncrement: true,
         allowNull: false,
     },
-    display_name: {
+    title: {
         type: DataTypes.STRING,
-        references: {
-            model: 'user',
-            key: 'username'
-        }
     },
     blog: {
         type: DataTypes.TEXT,
         validate : {
-            //MIN OF 20 and MAX of 10000 CHAR
-            len: [20, 9000]
+            //MIN OF 20 and MAX of 6000 CHAR
+            len: [20, 6000]
         }
     },
-    // user_id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     references: {
-    //         model: 'user',
-    //         key: 'id'
-    //     }
-    // },
+    user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'user',
+            key: 'id'
+        }
+    },
 },
 {
     sequelize,

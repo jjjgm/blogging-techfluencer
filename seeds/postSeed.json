@@ -1,6 +1,7 @@
 [
     {
-        "display_name": "moderator",
-        "blog":"Welcome to the blog! The minimum require input for a blog is 20 characters. The maximum is 9000! You get so much freedom to express yourself!"
+        "title": "Welcome Post",
+        "blog":"Welcome to \"The Techfluencer\"! The minimum required input for a blog-post is 20 characters. The maximum is 6000! You get so much freedom to post about your current thoughts!",
+        "user_id": 2
     }
 ]
