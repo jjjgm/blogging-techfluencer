@@ -5,7 +5,7 @@ const router = express.Router();
 // ALL API FOLDER ROUTES  WILL BEGIN W /API
 // ALL HOME / DASHBOARD ROUTES WILL BEGIN W /
 const apiRoutes = require('./api');
-const homeRoutes = require('./');
+const homeRoutes = require('./homeRoutes');
 
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
