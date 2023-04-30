@@ -62,7 +62,7 @@ Tech Blog that allows the 'User(s)' to access other blog posts by other 'Users',
 
 
 ## Resources and Acknowledgments
-    []()
+    [Handlebars JS](https://handlebarsjs.com/)
     []()
     []()
 
