@@ -3,6 +3,8 @@ const router = express.Router();
 //IMPORT ALL MODELS
 const db = require ('../../models')
 
+
+//CREATE A NEW BLOGPOST
 router.post('/posts', async (req, res) => {
     try {
         const newPost = await db.Post.create({

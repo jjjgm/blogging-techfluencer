@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-
+// IMPORT ALL MODELS WITH OWN VAR NAME AS A CONST
 const db = require ('..models/models')
 
 
-
+//GET ALL USERS
 router.get('/users', async (req, res) => {
     try {
         const user = await db.User.findAll({
@@ -17,6 +17,8 @@ router.get('/users', async (req, res) => {
     }
 });
 
+
+//GET ALL POSTS
 router.get('/posts', async (req, res) => {
     try {
         const post = await db.Post.findAll({
@@ -28,3 +30,8 @@ router.get('/posts', async (req, res) => {
         res.redirect(`/landing`)
     }
 });
+
+//GET ALL COMMENTS
+
+
+module.exports = router;

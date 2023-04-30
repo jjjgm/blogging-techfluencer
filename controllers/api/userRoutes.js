@@ -20,7 +20,7 @@ const db = require ('../../models')
 //     }
 //     });
 
-//
+//CREATE NEW USER
 router.post('/users', async (req, res) => {
     try {
         const newUser = await db.User.create({
