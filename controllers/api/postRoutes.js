@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 //IMPORT ALL MODELS
-const db = require ('../../models')
+const { Post } = require ('../../models')
 
 
 //CREATE A NEW BLOGPOST
 router.post('/posts', async (req, res) => {
     try {
-        const newPost = await db.Post.create({
+        const newPost = await Post.create({
             title: req.body.title,
             blog: req.body.blog,
             user_id: req.session.user.id

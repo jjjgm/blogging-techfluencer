@@ -75,6 +75,8 @@ router.get('/posts', async (req, res) => {
         const post = await db.Post.findAll({
             title: req.body.title,
             blog: req.body.blog,
+            //check the data format
+            createdAt: req.body.createdAt,
         });
         res.render(`/dashboard`);
     } catch (err) {
