@@ -121,6 +121,8 @@ dist
 .env
 DS_Store
 node_modules
+notes
+.notes
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
