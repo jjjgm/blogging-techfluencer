@@ -2,9 +2,10 @@
 const sequelize = require ('../config/connection');
 
 // USER MODEL & SEED DATA
-const { User, Post } = require('../models')
+const { User, Post, Comment } = require('../models')
 const userData = require ('../seeds/userSeed.json')
 const postData = require ('../seeds/postSeed.json');
+const commentData = require ('../seeds/commentSeed.json');
 
 
 //FUNCTION TO BEGIN TO SEED DATA
@@ -24,11 +25,9 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    // const user = await User.create( user, {
-    //     indivdualHooks: true,
-    //     returning: true,
-    // });
-
+    const comment = await Comment.bulkCreate(commentData, {
+        returning: true,
+    });
 
 
 

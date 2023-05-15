@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 //IMPORT ALL MODELS
-const db = require ('../../models')
+const { User } = require ('../../models')
 
 
 
@@ -9,7 +9,7 @@ const db = require ('../../models')
 //CREATE NEW USER
 router.post('/', async (req, res) => {
     try {
-        const newUser = await db.User.create(req.body);
+        const newUser = await User.create(req.body);
 
         req.session.save(()=> {
             req.session.user_id = newUser.id;
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 //LOGIN USER SESSION
 router.post('/login', async (req, res) => {
     try {
-    const users = await db.User.findOne({ where :  {
+    const users = await User.findOne({ where :  {
         username: req.body.username
     } });
 
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
         return;
     }
 
-    const validateLogin = await users.checkPassword(req.body.password);
+    const validateLogin = await User.checkPassword(req.body.password);
 
     if (!validateLogin) {
         //400 ERR STAT FOR UNAUTHORIZED ACCESS/AUTHENTICATION

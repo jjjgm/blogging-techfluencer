@@ -19,14 +19,15 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            index: true, 
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [8],
-            }
-        }
+            },
+        },
     },
     {
         hooks: {

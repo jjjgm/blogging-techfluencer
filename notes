@@ -1,0 +1,130 @@
+puesdo code for routes:
+
+GET /
+
+Description: Render the homepage
+Actions:
+If user is logged in:
+Retrieve existing blog posts and render them on the homepage
+Display navigation links for homepage, dashboard, and logout
+If user is not logged in:
+Render the homepage without any blog posts
+Display navigation links for homepage, dashboard, and login
+
+GET /homepage
+
+Description: Render the homepage
+Actions:
+If user is logged in:
+Retrieve existing blog posts and render them on the homepage
+Display navigation links for homepage, dashboard, and logout
+If user is not logged in:
+Render the homepage without any blog posts
+Display navigation links for homepage, dashboard, and login
+
+GET /signup
+
+Description: Render the sign-up page
+Actions:
+Display a form to enter a username and password
+Include a sign-up button
+
+
+POST /signup
+
+Description: Process the sign-up form submission
+Actions:
+Save the user credentials (username and password)
+Log the user into the site
+Redirect to the homepage
+
+GET /login
+
+Description: Render the login page
+Actions:
+Display a form to enter a username and password
+Include a login button
+POST /login
+
+Description: Process the login form submission
+Actions:
+Validate the user credentials (username and password)
+Log the user into the site
+Redirect to the homepage
+
+GET /dashboard
+
+Description: Render the user dashboard
+Actions:
+Retrieve the user's existing blog posts
+Display the blog posts
+Include a button to add a new blog post
+Display navigation links for homepage, dashboard, and logout
+
+
+GET /dashboard/new
+
+Description: Render the page to create a new blog post
+Actions:
+Display a form to enter the title and contents of the blog post
+Include a button to create the blog post
+
+
+POST /dashboard/new
+
+Description: Process the new blog post form submission
+Actions:
+Save the title and contents of the blog post
+Redirect to the dashboard
+
+
+GET /dashboard/:postId
+
+Description: Render the page for a specific blog post
+Actions:
+Retrieve the blog post with the given postId
+Display the post title, contents, creator's username, and date created
+Display existing comments for the post
+Include a form to leave a new comment
+
+POST /dashboard/:postId/comment
+
+Description: Process the comment form submission
+Actions:
+Save the comment, comment creator's username, and date created for the specific blog post
+Redirect back to the blog post page
+
+
+POST /dashboard/:postId/delete
+
+Description: Delete a specific blog post
+Actions:
+Delete the blog post with the given postId
+Redirect to the updated dashboard
+
+
+POST /dashboard/:postId/update
+
+Description: Update a specific blog post
+Actions:
+Retrieve the blog post with the given postId
+Display a form to edit the title and contents of the blog post
+Include a button to update the blog post
+Save the updated title and contents of the blog post
+Redirect to the updated dashboard
+
+POST /logout
+
+Description: Process the logout request
+Actions:
+Log the user out of the site
+Redirect to the homepage
+
+
+Middleware: Idle timeout
+
+Description: Check for user inactivity and prompt for login again if idle for a set time
+Actions:
+Monitor user activity and track the last active timestamp
+If the user is idle for a specified time duration:
+Redirect to the login page and prompt for login

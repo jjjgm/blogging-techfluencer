@@ -1,37 +1,26 @@
-const usernameInput = document.getElementById('username-input')
-const passwordInput = document.getElementById('password-input')
-
-// const loginBtn = document.getElementById('login-btn')
-
-
-document.getElementById('login-btn').addEventListener('submit', (event) => {
+const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    const username = usernameInput.value;
-    const password = passwordInput.value;
+    const username = document.querySelector('#username-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
 
-    if (!username || !password) {
-        alert('You need to enter your username and password to login');
-        return;
-    }
+    if (email && password) {
+        const response = await fetch('/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-    fetch('api/users/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-    })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(response.statusText);
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Failed to log in');
         }
-        else { window.location.href = '/homepage'; }
-        return response.json();
-    })
-    .catch((error) => {
-        alert(`Your login failed: ${error.message}`);
-    });
-});
+    }
+};
+
+document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginFormHandler);
 
 

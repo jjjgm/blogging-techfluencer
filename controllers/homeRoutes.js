@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
 // IMPORT ALL MODELS WITH OWN VAR NAME AS A CONST
-const db = require ('../models')
+const db = require('../models')
 
 
 //SIGN UP
 router.get('/signup', async (req, res) => {
-    if (req.session.logeed_in) {
+    if (req.session.logged_in) {
         res.redirect('/');
         return;
     }
@@ -24,13 +24,14 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+
 //HOMEPAGE
 router.get('/', async (req, res) => {
     try {
         const userData = await db.User.findByPk({
-            include: [ attributes ['username'] ]
+            include: [attributes['username']]
         });
-        res.render('homepage', {logged_in: req.session.logeed_in});
+        res.render('homepage', { logged_in: req.session.logeed_in });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -46,12 +47,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
         });
         // GET POSTS TO DASHBOARD
         const posts = myDashboard.map((post) => post.get({ plain: true }));
-    // RENDER DASHBOARD WHEN LOGGED IN
-    res.render('dashboard', { posts, logged_in: req.session.logged_in, username: req.session.username });
-} catch (err) {
-    console.log(err)
-    res.status(500).json(err);
-}
+        // RENDER DASHBOARD WHEN LOGGED IN
+        res.render('dashboard', { posts, logged_in: req.session.logged_in, username: req.session.username });
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
 });
 
 
