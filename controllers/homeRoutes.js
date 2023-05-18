@@ -18,10 +18,12 @@ router.get('/signup', async (req, res) => {
 //LOGIN
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/');
+        // res.redirect('/');
         return;
     }
-    res.render('login');
+    // res.render('login');
+    console.log(err);
+        res.status(400).json(err);
 });
 
 
@@ -62,9 +64,10 @@ router.get('/users', async (req, res) => {
         const users = await db.User.findAll({
             username: req.body.username
         });
-        res.render(`/homepage`);
+        // res.render(`/homepage`);
     } catch (err) {
-        res.redirect(`/login`)
+        console.log(err)
+        res.status(500).json(err);
     }
 });
 

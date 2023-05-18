@@ -63,7 +63,7 @@ Tech Blog that allows the 'User(s)' to access other blog posts by other 'Users',
 
 ## Resources and Acknowledgments
     [Handlebars JS](https://handlebarsjs.com/)
-    []()
+    [Validatoris- Sequelize](https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/)
     []()
 
 ## License
