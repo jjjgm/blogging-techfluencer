@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
 // IMPORT ALL MODELS WITH OWN VAR NAME AS A CONST
-const db = require('../models')
+const { Post, User } = require('../models')
 
 
 //SIGN UP
@@ -26,18 +26,24 @@ router.get('/login', (req, res) => {
         res.status(400).json(err);
 });
 
-
+//POST WOULD BE HOMEPAGE
 //HOMEPAGE
 router.get('/', async (req, res) => {
     try {
-        const userData = await db.User.findByPk({
-            include: [attributes['username']]
+        const posts = await Post.
+        findAll({include: User,
+            attribute: ['name']
         });
-        res.render('homepage', { logged_in: req.session.logeed_in });
+        const postData = posts.map((Post) => Post.get({
+            plain: true
+        }));
+
+        res.render('homepage', { logged_in: req.session.logeed_in, posts:postData });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
+
 });
 
 
@@ -81,9 +87,11 @@ router.get('/posts', async (req, res) => {
             //check the data format
             createdAt: req.body.createdAt,
         });
-        res.render(`/dashboard`);
+        // res.render(`/dashboard`);
     } catch (err) {
-        res.redirect(`/login`)
+        // res.redirect(`/login`)
+        console.log(err)
+        res.status(500).json(err);
     }
 });
 

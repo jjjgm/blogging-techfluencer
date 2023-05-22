@@ -14,7 +14,7 @@ Post.init ({
     title: {
         type: DataTypes.STRING,
     },
-    post: {
+    post_text: {
         type: DataTypes.TEXT,
         validate : {
             //MIN OF 20 and MAX of 6000 CHAR
