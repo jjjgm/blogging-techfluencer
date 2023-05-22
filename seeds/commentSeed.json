@@ -1,12 +1,17 @@
 [
     {
-        "comment": "Thanks for sharing blog requirements!",
+        "comment_text": "Thanks for sharing blog requirements!",
         "user_id": 1,
         "post_id": 1
     },
     {
-        "comment": "I'm quite excited to gor this community",
+        "comment_text": "I'm quite excited for this project",
         "user_id": 2,
+        "post_id": 1
+    },
+    {
+        "comment_text": "Thank you- Let's create an FAQ page!",
+        "user_id": 3,
         "post_id": 1
     }
 ]

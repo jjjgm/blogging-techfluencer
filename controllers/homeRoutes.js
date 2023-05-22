@@ -1,8 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
-// IMPORT ALL MODELS WITH OWN VAR NAME AS A CONST
-const { Post, User } = require('../models')
+const format_date = require('../utils/helpers');
+
+const { Post, User, Comment } = require('../models')
+
+
+
+//POSTS WOULD BE HOMEPAGE
+//HOMEPAGE
+router.get('/', async (req, res) => {
+    try {
+        const post = await Post.
+        findAll({include: User,
+            attribute: ['username']
+        });
+        const postData = post.map((Post) => Post.get({
+            plain: true
+        }));
+
+        res.render('homepage', { logged_in: req.session.logeed_in, post:postData, commentData });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 
 //SIGN UP
@@ -26,32 +48,16 @@ router.get('/login', (req, res) => {
         res.status(400).json(err);
 });
 
-//POST WOULD BE HOMEPAGE
-//HOMEPAGE
-router.get('/', async (req, res) => {
-    try {
-        const posts = await Post.
-        findAll({include: User,
-            attribute: ['name']
-        });
-        const postData = posts.map((Post) => Post.get({
-            plain: true
-        }));
-
-        res.render('homepage', { logged_in: req.session.logeed_in, posts:postData });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-
-});
 
 
 //DASHBOARD VIEW
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const myDashboard = await db.Post.findAll({
-            include: [{ model: db.User, attributes: ['username'] }]
+        const myDashboard = await Post.findAll({
+            include: [
+                { model: User, attributes: ['username'] },
+                { model: Comment, include: [User] }
+            ]
         });
         // GET POSTS TO DASHBOARD
         const posts = myDashboard.map((post) => post.get({ plain: true }));
@@ -64,36 +70,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
-//GET ALL USERS
-router.get('/users', async (req, res) => {
-    try {
-        const users = await db.User.findAll({
-            username: req.body.username
-        });
-        // res.render(`/homepage`);
-    } catch (err) {
-        console.log(err)
-        res.status(500).json(err);
-    }
-});
-
-
-//GET ALL POSTS
-router.get('/posts', async (req, res) => {
-    try {
-        const post = await db.Post.findAll({
-            title: req.body.title,
-            blog: req.body.blog,
-            //check the data format
-            createdAt: req.body.createdAt,
-        });
-        // res.render(`/dashboard`);
-    } catch (err) {
-        // res.redirect(`/login`)
-        console.log(err)
-        res.status(500).json(err);
-    }
-});
 
 //GET ALL COMMENTS
 

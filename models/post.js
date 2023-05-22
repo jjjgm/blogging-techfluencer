@@ -14,15 +14,16 @@ Post.init ({
     title: {
         type: DataTypes.STRING,
     },
-    post_text: {
+    content: {
         type: DataTypes.TEXT,
         validate : {
-            //MIN OF 20 and MAX of 6000 CHAR
-            len: [20, 6000]
+            //MIN OF 5 and MAX of 3000 CHAR
+            len: [5, 3000]
         }
     },
-    createdAt: {
+    created_at: {
         type: DataTypes.DATE,
+        allowNull: false,
         defaultValue: DataTypes.NOW,
     },
     user_id: {

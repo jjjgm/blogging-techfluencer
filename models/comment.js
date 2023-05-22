@@ -11,7 +11,7 @@ Comment.init(
         allowNull: false,
         primaryKey: true,
     },
-    comment: {
+    comment_text: {
         type: DataTypes.STRING,
     },
     user_id: {
@@ -21,7 +21,7 @@ Comment.init(
             key: 'id',
         },
     },
-    createdAt: {
+    created_at: {
         type: DataTypes.DATE,
         defaultValue: Date.now,
     },
