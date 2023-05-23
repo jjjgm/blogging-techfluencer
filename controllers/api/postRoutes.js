@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 const { Post } = require('../../models')
 
 //GET ALL POSTS
-// WORKING
+//WORKS
 router.get('/', async (req, res) => {
     try {
         const posts = await Post.findAll();

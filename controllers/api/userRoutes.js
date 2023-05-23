@@ -76,36 +76,38 @@ router.delete('/:id', async (req, res) => {
 //LOGIN USER SESSION
 // http://localhost:3001/api/users/login
 router.post('/login', async (req, res) => {
-    try {
-        const users = await User.findOne({
-            where: {
-                username: req.body.username
-            }
-        });
-
-        if (!users) {
-            res.status(400).json('Incorrect login credintials. Try again.');
-            return;
+    console.log(req.body)
+    // try {
+    const users = await User.findOne({
+        where: {
+            username: req.body.username
         }
-        const validateLogin = await User.checkPassword(req.body.password);
-        if (!validateLogin) {
-            //400 ERR STAT FOR UNAUTHORIZED ACCESS/AUTHENTICATION
-            res.status(400).json('Incorrect password. Please input a valid password.');
-            return;
-        }
-        req.session.save(() => {
-            req.session.logged_in = true;
-            req.session.username = users.username;
-            req.session.user_id = users.id;
+    });
 
-            res.json({ user: users, message: 'Login successful' });
-        });
-    } catch (err) {
-        res.status(400).json(err);
+    if (!users) {
+        res.status(400).json('Incorrect login credintials. Try again.');
+        return;
     }
+    const validateLogin = await users.checkPassword(req.body.password);
+    if (!validateLogin) {
+        //400 ERR STAT FOR UNAUTHORIZED ACCESS/AUTHENTICATION
+        res.status(400).json('Incorrect password. Please input a valid password.');
+        return;
+    }
+    req.session.save(() => {
+        req.session.logged_in = true;
+        req.session.username = users.username;
+        req.session.user_id = users.id;
+
+        res.json({ user: users, message: 'Login successful' });
+    });
+    // } catch (err) {
+    //     res.status(400).json(err);
+    // }
 });
 
 //SIGN UP
+//http://localhost:3001/api/users/signup
 router.post('/signup', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -127,6 +129,16 @@ router.post('/signup', async (req, res) => {
         });
     } catch (err) {
         res.status(400).json({ message: err.message });
+    }
+});
+
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
     }
 });
 
