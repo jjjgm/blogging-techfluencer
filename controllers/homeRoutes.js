@@ -78,8 +78,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
                 { model: Comment }
             ],
         });
-        // const posts = myDashboard.map((post) => post.get({ plain: true }));
-        const user = userData.get({ plain: true });
+        const user = myDashboard.get({ plain: true });
 
         res.render('dashboard', {
             ...user,
