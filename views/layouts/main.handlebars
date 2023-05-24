@@ -11,26 +11,27 @@
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="d-flex justify-content-end p-2">
       <nav>
-        <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        | <a href="/">home</a> |
-        <a href="/dashboard">dashboard</a> |
-        <button class="no-button" id="logout">logout</button> |
+        <a href="/" class="link-secondary">home</a> |
+        <a href="/dashboard" class="link-secondary">dashboard</a> |
+        <button class="no-button" id="logout" class="link-secondary">logout</button> |
         {{else}}
-        <a href="/login">login</a> |
+        <a href="/login" class="link-secondary">login</a> |
         {{/if}}
       </nav>
     </header>
+
     <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
       {{{ body }}}
     </main>
+
     <footer>
 
     </footer>
   </div>
+</body>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}

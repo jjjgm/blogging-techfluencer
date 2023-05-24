@@ -21,6 +21,7 @@ const seedDatabase = async () => {
     // CREATE POSTS
     const post = await Post.bulkCreate(postData, {
         returning: true,
+        ignoreDuplicates: true,
     });
     // CREATE COMMENTS
     const comment = await Comment.bulkCreate(commentData, {

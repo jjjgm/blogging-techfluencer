@@ -1,10 +1,8 @@
 {{!-- Post --}}
   <h2>{{title}}</h2>
   <p>{{content}}</p>
-  <p>Written by {{user.username}} on {{format_date created_at}}</p>
-  {{!-- <p>
-    <button class="btn btn-primary">Post</button>
-  </p> --}}
+  <p class="text-right fw-lighter">Written by {{user.username}} on {{format_date created_at}}</p>
+
 
 
 {{!-- COMMENT FORM --}}
@@ -12,7 +10,7 @@
 <form class="new-comment-form">
 <div class="text-center">
   <div class="form-group">
-    <label for="comment-text">comment:</label>
+    <label for="comment-text">Send a Comment:</label>
     <textarea class="form-input" id="comment-input" name="comment-input"></textarea>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">comment</button>
@@ -22,6 +20,7 @@
   {{else}}
   <p>Please login or sign-up to add a comment!</p>
   {{/if}}
+  </div>
 
 
 
@@ -29,10 +28,12 @@
   {{#each comments as |comment| }}
 <div class="row mb-4 post">
   <div class="col-md-5">
-    <h2>
-      <a href="/comments/{{comment.id}}">{{input}}</a>
-    </h2>
-    <p>Commented: {{user.username}} on {{ format_date comment.created_at}}</p>
+    <h4>
+      {{input}}
+    </h4>
+    <p>Commented 
+      {{!-- {{comment.user.username}}  --}}
+      on {{ format_date comment.created_at}}</p>
   </div>
 </div>
 {{/each}}
