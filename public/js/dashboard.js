@@ -21,6 +21,8 @@ const newFormHandler = async (event) => {
   }
 };
 
+
+
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
@@ -39,8 +41,8 @@ const delButtonHandler = async (event) => {
 
 // DELETE COMMENT
 const delCommentHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
+  if (event.target.hasAttribute('comment-data-id')) {
+      const id = event.target.getAttribute('comment-data-id');
 
       const response = await fetch(`/api/comments/${id}`, {
           method: 'DELETE',
