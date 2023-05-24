@@ -123,11 +123,13 @@ DS_Store
 node_modules
 notes
 .notes
+/notes
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 .vscode
 .extensions.json
+vscode
 
 # yarn v2
 .yarn/cache
