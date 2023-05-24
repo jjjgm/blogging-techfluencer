@@ -1,12 +1,17 @@
 [
     {
         "title": "Welcome Post",
-        "content":"Welcome to \"The Techfluencer\"! The minimum required input for a blog-post is 20 characters. The maximum is 6000! You get so much freedom to post about your current thoughts!",
+        "content":"Welcome to \"The Techfluencer\"! The minimum required input for a blog-post is 20 characters. The maximum is 3000! You get so much freedom to post about your current thoughts!",
         "user_id": 2
     },
     {
         "title": "This is the first day...",
         "content":"I'm  quite thrilled to be creating this tech blog. I think it will be fun to revist handlebars and challenge myself!",
         "user_id": 1
+    },
+    {
+        "title": "Wow what a display",
+        "content":"This is relaly testing the limits. Okay-- of my imagination",
+        "user_id": 3
     }
 ]

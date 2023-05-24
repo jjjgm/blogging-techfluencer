@@ -8,13 +8,12 @@
 
 
 {{!-- COMMENT FORM --}}
-
 {{#if logged_in}}
 <form class="new-comment-form">
 <div class="text-center">
   <div class="form-group">
     <label for="comment-text">comment:</label>
-    <textarea class="form-input" id="comment-text" name="comment-text"></textarea>
+    <textarea class="form-input" id="comment-input" name="comment-input"></textarea>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">comment</button>
       </div>
@@ -24,19 +23,18 @@
   <p>Please login or sign-up to add a comment!</p>
   {{/if}}
 
+
+
 {{!-- DISPLAY COMMENTS FOR POST --}}
   {{#each comments as |comment| }}
 <div class="row mb-4 post">
   <div class="col-md-5">
     <h2>
-      <a href="/comments/{{comment.id}}">{{comment_text}}</a>
+      <a href="/comments/{{comment.id}}">{{input}}</a>
     </h2>
-    <p>Created by {{comment.user.username}} on {{ post.created_at}}</p>
+    <p>Commented: {{user.username}} on {{ format_date comment.created_at}}</p>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{post.title}}
-    </p>
-</div>
 </div>
 {{/each}}
+
+<script src="../js/post.js"></script>

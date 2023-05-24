@@ -1,17 +1,22 @@
 [
     {
-        "comment_text": "Thanks for sharing blog requirements!",
-        "user_id": 1,
-        "post_id": 1
+        "input": "Thanks for sharing blog requirements!",
+        "post_id": 1,
+        "user_id": 2
     },
     {
-        "comment_text": "I'm quite excited for this project",
-        "user_id": 2,
-        "post_id": 1
+        "input": "Thank you- Let's create an FAQ page!",
+        "post_id": 1,
+        "user_id": 3
     },
     {
-        "comment_text": "Thank you- Let's create an FAQ page!",
-        "user_id": 3,
-        "post_id": 1
+        "input": "What a journey",
+        "post_id": 2,
+        "user_id": 1
+    },
+    {
+        "input": "I'm quite excited for this project",
+        "post_id": 3,
+        "user_id": 1
     }
 ]

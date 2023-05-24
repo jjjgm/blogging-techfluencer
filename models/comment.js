@@ -11,7 +11,7 @@ Comment.init(
         allowNull: false,
         primaryKey: true,
     },
-    comment_text: {
+    input: {
         type: DataTypes.STRING,
     },
     user_id: {
