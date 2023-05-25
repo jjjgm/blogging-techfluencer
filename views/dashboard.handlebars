@@ -50,7 +50,7 @@
         {{#each comments as |comment|}}
         <div class="row mb-2">
           <div class="col-8">
-            <h4><a href="comment/{{comment.id}}">{{comment.input}}</a></h4>
+            <h4><a class="disabled" href="comment/{{comment.id}}" onclick="return false;">{{comment.input}}</a></h4>
           </div>
           <div class="col-4">
             <button class="btn btn-sm btn-primary" comment-data-id="{{comment.id}}">DELETE</button>
