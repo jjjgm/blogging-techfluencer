@@ -70,8 +70,11 @@ Tech Blog that allows the 'User(s)' to access other blog posts by other 'Users',
 MIT License
 
 ## Tests & Deployments
-[Heroku Deployment]()
-[GitHub Repository]()
+[Heroku Deployment](https://fast-mesa-10038.herokuapp.com/) |
+
+[Heoku Git](https://git.heroku.com/fast-mesa-10038.git) |
+
+[GitHub Repository](https://github.com/jjjgm/blogging-techfluencer) |
 
 ## Assets
 

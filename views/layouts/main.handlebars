@@ -10,33 +10,31 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="d-flex justify-content-end p-2">
-      <nav>
-        {{#if logged_in}}
-        <a href="/" class="link-secondary">home</a> |
-        <a href="/dashboard" class="link-secondary">dashboard</a> |
-        <button class="no-button" id="logout" class="link-secondary">logout</button> |
-        {{else}}
-        <a href="/login" class="link-secondary">login</a> |
-        {{/if}}
-      </nav>
-    </header>
 
-    <main class="container container-fluid mt-5">
-      {{{ body }}}
-    </main>
+  <header class="d-flex flex-row justify-content-end p-2">
+    <nav class="nav nav-pills flex-sm-row p-2">
+      {{#if logged_in}}
+      <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="/">Home</a> |
+      <a class="flex-sm-fill text-sm-center nav-link" href="/dashboard">Dashboard</a> |
+      <a class="flex-sm-fill text-sm-center nav-link" id="logout">Logout</a> |
+      {{else}}
+      <a class="flex-sm-fill text-sm-center nav-link" href="/login">Login</a>
+      {{/if}}
+    </nav>
+  </header>
 
-    <footer>
+  <main class="container container-fluid mt-5">
+    <h1 class="text-center">The Techfluencer</h1>
+    {{{ body }}}
+  </main>
 
-    </footer>
-  </div>
+
 </body>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+<!-- Render script for logged in users only -->
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
 </body>
 
 </html>
